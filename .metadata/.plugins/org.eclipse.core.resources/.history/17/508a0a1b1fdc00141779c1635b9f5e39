@@ -1,0 +1,82 @@
+package com.example.uibestpractice;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
+
+public class MainActivity extends Activity {
+
+	private ListView msgListView;
+
+	private EditText inputText;
+
+	private Button send;
+
+	private MsgAdapter adapter;
+
+	private List<Msg> msgs = new ArrayList<Msg>();
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		setContentView(R.layout.activity_main);
+		initMsgs();
+		initViews();
+		
+		this.send.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				String content = inputText.getText().toString();
+				if(!content.isEmpty()) {
+					
+				}
+			}
+		});
+		
+	}
+	
+	private void initViews() {
+		this.msgListView = (ListView) findViewById(R.id.msg_list_view);
+		this.inputText = (EditText) findViewById(R.id.input_text);
+		this.send = (Button) findViewById(R.id.send);
+		this.adapter = new MsgAdapter(this, R.layout.msg_item, msgs);
+		this.msgListView.setAdapter(adapter);
+	}
+	
+	private void initMsgs() {
+		this.msgs.add(new Msg("你好", Msg.TYPE_RECEIVED));
+		this.msgs.add(new Msg("你是？", Msg.TYPE_SENT));
+		this.msgs.add(new Msg("附近的人", Msg.TYPE_RECEIVED));
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+}

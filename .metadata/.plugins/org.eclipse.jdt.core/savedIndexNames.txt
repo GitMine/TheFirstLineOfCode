@@ -1,0 +1,6 @@
+INDEX VERSION 1.126+D:\Program Files (x86)\Android\TheFirstLineOfCode\.metadata\.plugins\org.eclipse.jdt.core
+2948329333.index
+1822873519.index
+4256077440.index
+3663503930.index
+381043242.index

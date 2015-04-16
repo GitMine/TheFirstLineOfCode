@@ -1,0 +1,6 @@
+package com.example.listviewtest;
+
+public class Fruit {
+	private String name;
+	private in imageId;
+}

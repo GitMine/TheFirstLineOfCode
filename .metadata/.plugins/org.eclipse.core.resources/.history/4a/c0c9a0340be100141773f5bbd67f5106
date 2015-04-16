@@ -1,0 +1,9 @@
+package com.example.fragmentbestpractice.adapter;
+
+import android.widget.ArrayAdapter;
+
+import com.example.fragmentbestpractice.mode.News;
+
+public class NewsAdapter extends ArrayAdapter<News> {
+
+}
